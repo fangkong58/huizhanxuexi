@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动汇报图片模板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .report-card {
+            width: 1200px;
+            min-height: 800px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 0 auto 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .report-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .info-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .info-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #ffd700;
+            border-radius: 2px;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            min-width: 80px;
+            color: #ffd700;
+        }
+        
+        .info-value {
+            flex: 1;
+            line-height: 1.6;
+        }
+        
+        .image-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .image-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .image-section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #ffd700;
+            border-radius: 2px;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 4/3;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            border: 2px dashed rgba(255,255,255,0.4);
+        }
+        
+        .stats-bar {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* 不同主题配色 */
+        .theme-blue {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .theme-green {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .theme-orange {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .theme-dark {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        }
+        
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .report-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 示例：南京国际软件博览会汇报图 -->
+    <div class="report-card theme-blue">
+        <div class="header">
+            <h1>2026南京国际软件博览会</h1>
+            <div class="subtitle">活动汇报 | 2026年8月15-17日 | 南京国际博览中心</div>
+        </div>
+        
+        <div class="content">
+            <div class="info-section">
+                <h2>基本信息</h2>
+                <div class="info-item">
+                    <span class="info-label">时间：</span>
+                    <span class="info-value">2026年8月15日-17日</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">地点：</span>
+                    <span class="info-value">南京国际博览中心（建邺区江东中路300号）</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">主办：</span>
+                    <span class="info-value">南京市人民政府、江苏省工信厅</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">承办：</span>
+                    <span class="info-value">南京市工信局、南京软件行业协会</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">主题：</span>
+                    <span class="info-value">软件赋能 数智未来</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">形式：</span>
+                    <span class="info-value">专业展览会 + 高峰论坛</span>
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <h2>现场图片</h2>
+                <div class="image-grid">
+                    <div class="image-placeholder">开幕式现场<br>主舞台全景</div>
+                    <div class="image-placeholder">展馆外景<br>入口人流</div>
+                    <div class="image-placeholder">AI展区<br>大模型互动体验</div>
+                    <div class="image-placeholder">论坛现场<br>座无虚席</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">3万㎡</div>
+                <div class="stat-label">展览面积</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">参展企业</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5万+</div>
+                <div class="stat-label">专业观众</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3天</div>
+                <div class="stat-label">活动周期</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>江苏省会议会展行业周报 | 2026年第34周 | 编制日期：2026年8月26日</p>
+        </div>
+    </div>
+    
+    <!-- 使用说明 -->
+    <div style="max-width: 1200px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <h2 style="margin-bottom: 20px; color: #333;">使用说明</h2>
+        <ol style="line-height: 2; color: #666;">
+            <li>复制上方HTML代码，保存为.html文件</li>
+            <li>修改活动信息、图片占位符、数据等</li>
+            <li>用浏览器打开，使用截图工具（如浏览器开发者工具）生成图片</li>
+            <li>或使用浏览器打印功能，选择"另存为PDF"</li>
+            <li>可更换主题配色：theme-blue / theme-green / theme-orange / theme-dark</li>
+            <li>实际使用时，将image-placeholder替换为真实图片：&lt;img src="图片路径" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"&gt;</li>
+        </ol>
+        
+        <h3 style="margin-top: 30px; margin-bottom: 15px; color: #333;">快速生成工具推荐</h3>
+        <ul style="line-height: 2; color: #666;">
+            <li><strong>截图工具：</strong>Chrome开发者工具（F12）→ 设备模式 → 截图</li>
+            <li><strong>在线工具：</strong>html2image、url2png</li>
+            <li><strong>命令行工具：</strong>puppeteer、wkhtmltoimage</li>
+        </ul>
+    </div>
+</body>
+</html>
