@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026南京国际软件博览会 - 活动汇报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .report-card {
+            width: 1200px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+        
+        .header .theme {
+            font-size: 26px;
+            margin-top: 15px;
+            color: #ffd700;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .info-section h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .info-section h2::before {
+            content: '◆';
+            color: #667eea;
+            font-size: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.8;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            min-width: 90px;
+            color: #667eea;
+            font-size: 16px;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .highlights-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .highlights-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .highlights-section h2::before {
+            content: '✨';
+            font-size: 32px;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .highlight-item {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .highlight-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .highlight-item p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .image-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .image-section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .image-section h2::before {
+            content: '📸';
+            font-size: 32px;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .image-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .image-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            line-height: 1.6;
+        }
+        
+        .image-caption {
+            padding: 15px;
+            background: white;
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .feedback-section {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 15px;
+            padding: 40px;
+            color: white;
+        }
+        
+        .feedback-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .feedback-section h2::before {
+            content: '💬';
+            font-size: 32px;
+        }
+        
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .feedback-item {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .feedback-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .feedback-item p {
+            font-size: 15px;
+            line-height: 2;
+            opacity: 0.95;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 15px;
+            opacity: 0.8;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .report-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-card">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>2026南京国际软件博览会</h1>
+            <div class="subtitle">活动汇报 | 2026年8月15-17日 | 南京国际博览中心</div>
+            <div class="theme">🎯 主题：软件赋能 数智未来</div>
+        </div>
+        
+        <!-- 内容区 -->
+        <div class="content">
+            <!-- 基本信息 -->
+            <div class="info-grid">
+                <div class="info-section">
+                    <h2>基本信息</h2>
+                    <div class="info-item">
+                        <span class="info-label">时间：</span>
+                        <span class="info-value">2026年8月15日-17日（3天）</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">地点：</span>
+                        <span class="info-value">南京国际博览中心<br>（建邺区江东中路300号）</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">主办：</span>
+                        <span class="info-value">南京市人民政府、江苏省工信厅</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">承办：</span>
+                        <span class="info-value">南京市工信局、南京软件行业协会</span>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h2>活动形式</h2>
+                    <div class="info-item">
+                        <span class="info-label">类型：</span>
+                        <span class="info-value">专业展览会 + 高峰论坛</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">展区：</span>
+                        <span class="info-value">基础软件、工业软件、人工智能、云计算、信息安全、开源生态</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">同期：</span>
+                        <span class="info-value">中国软件大会、开源生态论坛、AI大模型应用峰会</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">重点：</span>
+                        <span class="info-value">华为、中兴、浪潮、中软国际、润和软件、满帮集团</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 数据统计 -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">3万㎡</div>
+                    <div class="stat-label">展览面积</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">参展企业</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5万+</div>
+                    <div class="stat-label">专业观众</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3天</div>
+                    <div class="stat-label">活动周期</div>
+                </div>
+            </div>
+            
+            <!-- 活动亮点 -->
+            <div class="highlights-section">
+                <h2>活动亮点</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <h3>🤖 首次设立"AI+软件"专区</h3>
+                        <p>展示大模型在行业应用中的最新成果，吸引众多观众互动体验</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>🎓 中国软件大会同期举办</h3>
+                        <p>院士、专家齐聚，探讨软件产业发展趋势，座无虚席</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>🔓 开源生态论坛</h3>
+                        <p>国内开源社区代表分享经验，推动开源技术生态建设</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>📝 重大项目签约</h3>
+                        <p>多个重大项目集中签约，总投资超百亿元，彰显产业实力</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 现场图片 -->
+            <div class="image-section">
+                <h2>现场图片</h2>
+                <div class="image-grid">
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            开幕式现场<br>主舞台全景<br>嘉宾致辞
+                        </div>
+                        <div class="image-caption">开幕式现场</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            展馆外景<br>南京国际博览中心<br>入口人流
+                        </div>
+                        <div class="image-caption">展馆外景</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            AI展区<br>大模型互动体验<br>观众排队
+                        </div>
+                        <div class="image-caption">AI展区互动</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            论坛现场<br>中国软件大会<br>座无虚席
+                        </div>
+                        <div class="image-caption">主论坛现场</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            签约仪式<br>重大项目集中<br>签约
+                        </div>
+                        <div class="image-caption">项目签约仪式</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder">
+                            展位参观<br>专业观众<br>技术交流
+                        </div>
+                        <div class="image-caption">展位参观交流</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 反馈评价 -->
+            <div class="feedback-section">
+                <h2>现场反馈</h2>
+                <div class="feedback-grid">
+                    <div class="feedback-item">
+                        <h3>👥 现场情况</h3>
+                        <p>日均1.8万人次，3天累计超5万人次<br>
+                        专业性强，技术交流活跃<br>
+                        多个展位设有互动体验区</p>
+                    </div>
+                    <div class="feedback-item">
+                        <h3>🏢 参展商反馈</h3>
+                        <p>整体满意度高<br>
+                        专业观众质量高<br>
+                        达成多项合作意向<br>
+                        对南京市场充满信心</p>
+                    </div>
+                    <div class="feedback-item">
+                        <h3>👤 观众反馈</h3>
+                        <p>内容丰富，技术前沿<br>
+                        热门论坛需提前预约<br>
+                        建议增加场次<br>
+                        互动体验区设计有趣</p>
+                    </div>
+                    <div class="feedback-item">
+                        <h3>📺 媒体报道</h3>
+                        <p>央视财经、新华日报、南京日报等主流媒体报道<br>
+                        行业媒体广泛关注<br>
+                        社交媒体热度高</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            江苏省会议会展行业周报 | 2026年第34周 | 编制日期：2026年8月26日 | 云端Hermes助手
+        </div>
+    </div>
+</body>
+</html>
