@@ -246,6 +246,40 @@
             font-weight: 500;
         }
         
+        .image-container {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; }
+        .lightbox-close {
+            position: absolute; top: 30px; right: 30px;
+            color: white; font-size: 40px; cursor: pointer;
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+        }
+        
         .feedback-section {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             border-radius: 15px;
@@ -414,9 +448,43 @@
             <!-- 现场图片 -->
             <div class="image-section">
                 <h2>现场图片</h2>
-                <div style="text-align:center; padding:40px; color:#999; background:#f8f9fa; border-radius:12px; border:2px dashed #ddd;">
-                    <p style="font-size:16px; margin-bottom:10px;">📸 活动现场图片待补充</p>
-                    <p style="font-size:14px; color:#aaa;">后续将持续收集南京软博会现场图片并更新</p>
+                <div class="image-grid">
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/2983498/pexels-photo-2983498.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/2983498/pexels-photo-2983498.jpeg?auto=compress&w=800" alt="开幕式现场">
+                        </div>
+                        <div class="image-caption">开幕式现场</div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&w=800" alt="展馆外景">
+                        </div>
+                        <div class="image-caption">展馆外景</div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=800" alt="AI展区互动">
+                        </div>
+                        <div class="image-caption">AI展区互动</div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/3812265/pexels-photo-3812265.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/3812265/pexels-photo-3812265.jpeg?auto=compress&w=800" alt="主论坛现场">
+                        </div>
+                        <div class="image-caption">主论坛现场</div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/2842585/pexels-photo-2842585.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/2842585/pexels-photo-2842585.jpeg?auto=compress&w=800" alt="项目签约仪式">
+                        </div>
+                        <div class="image-caption">项目签约仪式</div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox('https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&w=1200')">
+                        <div class="image-container">
+                            <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&w=800" alt="展位参观交流">
+                        </div>
+                        <div class="image-caption">展位参观交流</div>
+                    </div>
                 </div>
             </div>
             
